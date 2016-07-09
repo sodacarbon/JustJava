@@ -19,7 +19,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -46,17 +48,28 @@ public class MainActivity extends ActionBarActivity {
         boolean hasWhippedCream = whippedCreamCheckbox.isChecked();
         Log.v("MainActivity", "Has whipped cream: " + hasWhippedCream);
 
-        String priceMessage = createOrderSummary(price, hasWhippedCream);
+        CheckBox chocolateCheckbox = (CheckBox) findViewById(R.id.chocolate_checkbox);
+        boolean hasChocolate = chocolateCheckbox.isChecked();
+        Log.v("MainActivity", "Has chocolate: " + hasChocolate);
+
+        EditText textPersonName = (EditText) findViewById(R.id.text_person_name);
+        String personName = textPersonName.getText().toString();
+        Log.v("MainActivity", "Name: " + personName);
+
+        String priceMessage = createOrderSummary(personName, price, hasWhippedCream, hasChocolate);
         displayMessage(priceMessage);
     }
 
-    private String createOrderSummary(int price, boolean hasWhippedCream) {
-        String priceMessage = "Name: John Doe";
-
+    private String createOrderSummary(String personName, int price, boolean hasWhippedCream, boolean hasChocolate) {
+        String priceMessage = "Name: " + personName;
         priceMessage += "\nAdd Whipped cream? " + hasWhippedCream;
+        priceMessage += "\nAdd Chocolate? " + hasChocolate;
 
         if (hasWhippedCream) {
             price = price + (quantity * 2);
+        }
+        if (hasChocolate) {
+            price = price + (quantity * 1);
         }
 
         priceMessage += "\nQuantity: " + quantity;
@@ -70,6 +83,10 @@ public class MainActivity extends ActionBarActivity {
      */
     public void increment(View view) {
         quantity = quantity + 1;
+        if (quantity >= 10) {
+            quantity = 10;
+            Toast.makeText(getApplicationContext(), "Maximum quantity = 10", Toast.LENGTH_SHORT).show();
+        }
         displayQuantity(quantity);
     }
 
@@ -78,6 +95,10 @@ public class MainActivity extends ActionBarActivity {
      */
     public void decrement(View view) {
         quantity = quantity - 1;
+        if (quantity <= 0) {
+            quantity = 0;
+            Toast.makeText(getApplicationContext(), "Minimum quantity = 0", Toast.LENGTH_SHORT).show();
+        }
         displayQuantity(quantity);
     }
 

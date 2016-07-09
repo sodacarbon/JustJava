@@ -8,7 +8,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:ems="10"
+            android:layout_marginBottom="16dp"
+            android:hint="Enter Your Name"
+            android:id="@+id/text_person_name" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,6 +34,15 @@
             android:checked="false"
             android:paddingLeft="24dp"
             android:text="Whipped cream"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/chocolate_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:paddingLeft="24dp"
+            android:text="Chocolate"
             android:textSize="16sp" />
 
         <TextView
