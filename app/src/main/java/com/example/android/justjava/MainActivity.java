@@ -14,6 +14,8 @@
 
 package com.example.android.justjava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -57,7 +59,12 @@ public class MainActivity extends ActionBarActivity {
         Log.v("MainActivity", "Name: " + personName);
 
         String priceMessage = createOrderSummary(personName, price, hasWhippedCream, hasChocolate);
-        displayMessage(priceMessage);
+
+        // displayMessage(priceMessage);
+        String[] mailtoEmails = new String[]{"google@gmail.com", "microsoft@hotmail.com"};
+        String subject = "JustJava Order For " + personName;
+        String bodyText = priceMessage;
+        composeEmail(mailtoEmails, subject, bodyText);
     }
 
     private String createOrderSummary(String personName, int price, boolean hasWhippedCream, boolean hasChocolate) {
@@ -127,4 +134,15 @@ public class MainActivity extends ActionBarActivity {
         orderSummaryTextView.setText(message);
     }
 
+    // developer.android.com/guide/components/intents-common.html#Email
+    public void composeEmail(String[] addresses, String subject, String message) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
 }

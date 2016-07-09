@@ -89,6 +89,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
             android:text="Order Summary"
+            android:visibility="gone"
             android:textAllCaps="true" />
 
         <TextView
@@ -97,6 +98,7 @@
             android:layout_height="wrap_content"
             android:text="$0"
             android:textColor="@android:color/black"
+            android:visibility="gone"
             android:textSize="16sp" />
 
         <Button
