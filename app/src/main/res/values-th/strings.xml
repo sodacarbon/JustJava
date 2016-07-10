@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">จัสท์ จาวา</string>
+    <string name="thank_you">ขอบคุณ!</string>
+    <string name="topping">ท็อปปิ้ง</string>
+    <string name="order_summary_name">ชื่อ: <xliff:g id="personName" example="Amy">%s</xliff:g></string>
+
+    <string name="name">ชื่อ</string>
+    <string name="whipped_cream">วิปครีม</string>
+    <string name="chocolate">ช็อคโกแลต</string>
+    <string name="quantity">จำนวน</string>
+    <string name="order_summary">สรุปคำสั่งซื้อ</string>
+    <string name="order">สั่งซื่อ</string>
+    <string name="add_whipped_cream">เพิ่มวิปครีม? </string>
+    <string name="add_chocolate">เพิ่มช็อคโกแลต? </string>
+    <string name="Quantity">จำนวน: </string>
+    <string name="total">ทั้งหมด: ฿</string>
+    <string name="JustJavaOrderFor">รายการสั่งซื้อ จัสท์จาวา สำหรับ </string>
+</resources>
