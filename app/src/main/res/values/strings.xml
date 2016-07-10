@@ -1,3 +1,24 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Just Java</string>
+
+    <!-- Header text for the list of toppings [CHAR LIMIT=20] -->
+    <string name="topping">Topping</string>
+
+    <!--Thank you message for the order summary. [CHAR LIMIT=NONE]-->
+    <string name="thank_you">Thank You!</string>
+
+    <!--Name for the order summary. It will be shown in the format of "Name: Amy" where Amy is the user's name. [CHAR LIMIT=NONE] -->
+    <string name="order_summary_name">Name: <xliff:g id="personName" example="Amy">%s</xliff:g></string>
+
+    <string name="name">Name</string>
+    <string name="whipped_cream">Whipped cream</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="quantity">Quantity</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="order">Order</string>
+    <string name="add_whipped_cream">Add Whipped cream? </string>
+    <string name="add_chocolate">Add Chocolate? </string>
+    <string name="Quantity">Quantity: </string>
+    <string name="total">Total: $</string>
+    <string name="JustJavaOrderFor">JustJava Order For </string>
 </resources>
