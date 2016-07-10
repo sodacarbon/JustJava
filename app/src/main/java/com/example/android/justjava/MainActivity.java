@@ -62,15 +62,16 @@ public class MainActivity extends ActionBarActivity {
 
         // displayMessage(priceMessage);
         String[] mailtoEmails = new String[]{"google@gmail.com", "microsoft@hotmail.com"};
-        String subject = "JustJava Order For " + personName;
+        String subject = getString(R.string.JustJavaOrderFor) + personName;
         String bodyText = priceMessage;
-        composeEmail(mailtoEmails, subject, bodyText);
+        // composeEmail(mailtoEmails, subject, bodyText);
+        composeEmail(null, subject, bodyText);
     }
 
     private String createOrderSummary(String personName, int price, boolean hasWhippedCream, boolean hasChocolate) {
-        String priceMessage = "Name: " + personName;
-        priceMessage += "\nAdd Whipped cream? " + hasWhippedCream;
-        priceMessage += "\nAdd Chocolate? " + hasChocolate;
+        String priceMessage = getString(R.string.order_summary_name, personName);
+        priceMessage += "\n" + getString(R.string.add_whipped_cream) + hasWhippedCream;
+        priceMessage += "\n" + getString(R.string.add_chocolate) + hasChocolate;
 
         if (hasWhippedCream) {
             price = price + (quantity * 2);
@@ -79,9 +80,9 @@ public class MainActivity extends ActionBarActivity {
             price = price + (quantity * 1);
         }
 
-        priceMessage += "\nQuantity: " + quantity;
-        priceMessage += "\nTotal: $" + price;
-        priceMessage += "\nThank You!";
+        priceMessage += "\n" + getString(R.string.Quantity) + quantity;
+        priceMessage += "\n" + getString(R.string.total) + price;
+        priceMessage += "\n" + getString(R.string.thank_you);
         return priceMessage;
     }
 
